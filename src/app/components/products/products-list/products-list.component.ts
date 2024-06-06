@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ProductsServiceService } from '../../../services/products/products-service.service';
 import { Product } from '../../../models/Product';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductsServiceService } from '../../../services/products/products-service.service';
 
 @Component({
   selector: 'app-products-list',
@@ -11,28 +12,33 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class ProductsListComponent implements OnInit {
 
-  constructor(private productService: ProductsServiceService) { }
+  productList!: MatTableDataSource<Product>;
 
-  productList: Product[] = [];
-  displayedColumns: string[] = ['id', 'name', 'code', 'category'];
-  dataSource = new MatTableDataSource<Product>(this.productList);
+  columnsHeader = ['date', 'name', 'price', 'amount', 'status', 'opciones'];
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  constructor(
+    private productService: ProductsServiceService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-    this.getProducts();
+    this.productListMethod();
   }
 
-  getProducts(): void {
-    this.productService.getProducst().subscribe(
-      (products: Product[]) => {
-        this.productList = products;
-        this.dataSource.data = this.productList;
-        this.dataSource.paginator = this.paginator;
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+  productListMethod(): void {
+    try {
+      this.productService.getProducst().subscribe((items: Product[]) => {
+        this.productList = new MatTableDataSource(items);
+        console.log(items);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.productList.filter = filterValue.trim().toLowerCase();
+  }
+
 }

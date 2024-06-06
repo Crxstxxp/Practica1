@@ -1,52 +1,50 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsListComponent } from './components/products/products-list/products-list.component';
-import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MenubarComponent } from './components/menubar/menubar.component';
-
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { HomeComponent } from './components/home/home.component';
-import { ProductFormComponent } from './components/products/product-form/product-form.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { MenubarComponent } from './components/menubar/menubar.component';
+import { ProductsListComponent } from './components/products/products-list/products-list.component';
+import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductsListComponent,
-    MenubarComponent,
-    HomeComponent,
-    ProductFormComponent
-  ],
+  declarations: [AppComponent, MenubarComponent, ProductsListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    MatGridListModule,
     MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatBadgeModule,
+    FormsModule,
     MatSidenavModule,
+    MatMenuModule,
     MatListModule,
-    AppRoutingModule,
+    MatIconModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatCardModule,
+    HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatTableModule,
-    MatPaginatorModule
+    MatDialogModule,
+    ReactiveFormsModule,
   ],
-  providers: [
-    provideClientHydration(),
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideClientHydration(), provideAnimationsAsync()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
