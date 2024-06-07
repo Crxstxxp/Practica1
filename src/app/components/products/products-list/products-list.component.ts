@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductsServiceService } from '../../../services/products/products-service.service';
+import { ProductFormComponent } from '../product-form/product-form.component';
+import { ConfirmationComponentComponent } from '../../confirmation-component/confirmation-component.component';
 
 @Component({
   selector: 'app-products-list',
@@ -11,7 +13,6 @@ import { ProductsServiceService } from '../../../services/products/products-serv
   styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit {
-
   productList!: MatTableDataSource<Product>;
 
   columnsHeader = ['date', 'name', 'price', 'amount', 'status', 'opciones'];
@@ -39,6 +40,44 @@ export class ProductsListComponent implements OnInit {
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.productList.filter = filterValue.trim().toLowerCase();
-  }
+  }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(ProductFormComponent, {
+      data: null,
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log("the dialog is closed")
+      if(result) {
+        this.productListMethod()
+      }
+    })
+  }
+
+  editDialog(element: Product) {
+    const dialogRef = this.dialog.open(ProductFormComponent, {
+      data: element,
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log("the dialog is closed")
+      if(result) {
+        this.productListMethod()
+      }
+    })
+  }
+
+  deleteDialog(element: Product) {
+    const dialogRef = this.dialog.open(ConfirmationComponentComponent, {
+      data: element,
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log("the dialog is closed")
+      if(result) {
+        this.productListMethod()
+      }
+    })
+  }
 }

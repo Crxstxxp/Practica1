@@ -21,9 +21,11 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { MenubarComponent } from './components/menubar/menubar.component';
 import { ProductsListComponent } from './components/products/products-list/products-list.component';
 import { NgModule } from '@angular/core';
+import { ProductFormComponent } from './components/products/product-form/product-form.component';
+import { ConfirmationComponentComponent } from './components/confirmation-component/confirmation-component.component';
 
 @NgModule({
-  declarations: [AppComponent, MenubarComponent, ProductsListComponent],
+  declarations: [AppComponent, MenubarComponent, ProductsListComponent, ProductFormComponent, ConfirmationComponentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
