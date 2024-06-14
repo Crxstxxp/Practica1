@@ -17,8 +17,13 @@ export class ProductsServiceService {
     return this.http.get<Product[]>(this.URL)
   }
 
-  createProduct(product: Product):Observable<Product> {
-    return this.http.post<Product>(this.URL, {product})
+  createProduct(product: any): Observable<Product> {
+    return this.http.post<Product>(this.URL, product);
+  }
+
+  updateProduct(product: any): Observable<Product> {
+    console.log("ACTUALIZAR: ",product)
+    return this.http.put<Product>(this.URL, product);
   }
 
   deleteProduct(id: string):Observable<Product> {

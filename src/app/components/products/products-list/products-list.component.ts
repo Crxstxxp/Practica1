@@ -30,7 +30,7 @@ export class ProductsListComponent implements OnInit {
     try {
       this.productService.getProducst().subscribe((items: Product[]) => {
         this.productList = new MatTableDataSource(items);
-        console.log(items);
+        // console.log(items);
       });
     } catch (error) {
       console.log(error);
