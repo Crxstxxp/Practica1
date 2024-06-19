@@ -5,12 +5,14 @@ import { ProductsListComponent } from './components/products/products-list/produ
 import { ProductFormComponent } from './components/products/product-form/product-form.component';
 import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './users/user-list/user-list.component';
+import { LoginComponent } from './components/login/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'ProductsListComponent', component: ProductsListComponent },
   { path: 'UserListComponent', component: UserListComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
