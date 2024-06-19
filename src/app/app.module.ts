@@ -24,9 +24,10 @@ import { NgModule } from '@angular/core';
 import { ProductFormComponent } from './components/products/product-form/product-form.component';
 import { ConfirmationComponentComponent } from './components/confirmation-component/confirmation-component.component';
 import { UsersComponent } from './users/users.component';
+import { UserListComponent } from './users/user-list/user-list.component';
 
 @NgModule({
-  declarations: [AppComponent, MenubarComponent, ProductsListComponent, ProductFormComponent, ConfirmationComponentComponent, UsersComponent],
+  declarations: [AppComponent, MenubarComponent, ProductsListComponent, ProductFormComponent, ConfirmationComponentComponent, UsersComponent, UserListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
