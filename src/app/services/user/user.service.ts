@@ -17,13 +17,14 @@ export class UserService {
     return this.http.get<User[]>(this.URL)
   }
 
-  createUser(product: any): Observable<User> {
-    return this.http.post<User>(this.URL, product);
+  createUser(user: any): Observable<User> {
+    console.log(user)
+    return this.http.post<User>(this.URL, user);
   }
 
-  updateUser(product: any): Observable<User> {
-    console.log("ACTUALIZAR: ",product)
-    return this.http.put<User>(this.URL, product);
+  updateUser(user: any): Observable<User> {
+    console.log("ACTUALIZAR: ",user)
+    return this.http.put<User>(this.URL, user);
   }
 
   deleteUser(id: string):Observable<User> {

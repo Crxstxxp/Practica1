@@ -26,6 +26,8 @@ import { ConfirmationComponentComponent } from './components/confirmation-compon
 import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [AppComponent, MenubarComponent, ProductsListComponent, ProductFormComponent, ConfirmationComponentComponent, UsersComponent, UserListComponent, UserFormComponent],
@@ -48,6 +50,8 @@ import { UserFormComponent } from './users/user-form/user-form.component';
     MatTableModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatOptionModule,
+    MatSelectModule,
   ],
   providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],
