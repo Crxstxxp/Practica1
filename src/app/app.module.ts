@@ -25,9 +25,10 @@ import { ProductFormComponent } from './components/products/product-form/product
 import { ConfirmationComponentComponent } from './components/confirmation-component/confirmation-component.component';
 import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './users/user-list/user-list.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
 
 @NgModule({
-  declarations: [AppComponent, MenubarComponent, ProductsListComponent, ProductFormComponent, ConfirmationComponentComponent, UsersComponent, UserListComponent],
+  declarations: [AppComponent, MenubarComponent, ProductsListComponent, ProductFormComponent, ConfirmationComponentComponent, UsersComponent, UserListComponent, UserFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
