@@ -1,1 +1,5 @@
-<app-menubar></app-menubar>
+<ng-container *ngIf="isLoggedIn()">
+  <app-menubar></app-menubar>
+</ng-container>
+
+<router-outlet></router-outlet>
