@@ -24,7 +24,7 @@ export class UserService {
 
   updateUser(user: any): Observable<User> {
     console.log("ACTUALIZAR: ",user)
-    return this.http.put<User>(this.URL, user);
+    return this.http.patch<User>(this.URL, user);
   }
 
   deleteUser(id: string):Observable<User> {

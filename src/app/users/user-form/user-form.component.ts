@@ -15,7 +15,7 @@ export class UserFormComponent {
 
   constructor(
     public dialogRef: MatDialogRef<UserListComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: User,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
     private userService: UserService
   ) {}
@@ -25,7 +25,9 @@ export class UserFormComponent {
   }
 
   initForm(): void {
+    // console.log("dataaa:", this.data);
     this.formGroup = this.fb.group({
+      id: [this.data ? this.data._id : null],
       username: [this.data ? this.data.username : '', Validators.required],
       name: [this.data ? this.data.name : '', Validators.required],
       lastName: [this.data ? this.data.lastName : ''],
@@ -58,8 +60,8 @@ export class UserFormComponent {
 
   save(): void {
     if (this.formGroup.valid) {
-      const request: User = {
-        id: this.data ? this.data.id : undefined,
+      const request = {
+        id: this.data ? this.data._id : null,
         username: this.formGroup.value.username,
         name: this.formGroup.value.name,
         lastName: this.formGroup.value.lastName,

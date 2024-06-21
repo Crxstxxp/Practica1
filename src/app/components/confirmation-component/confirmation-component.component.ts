@@ -16,11 +16,11 @@ export class ConfirmationComponentComponent {
   ) {}
 
   onSave() {
-    console.log("AQUI");
+    this.dialogRef.close(true);
   }
 
   onCancel() {
-    console.log("AQUI, PERO ACA");
-  }
+    this.dialogRef.close(false);
+  }
 
 }
