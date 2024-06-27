@@ -30,9 +30,11 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './components/login/login/login.component';
 import { SalesWindowComponent } from './components/sales/sales-window/sales-window.component';
+import { CardComponent } from './components/sales/card/card.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, MenubarComponent, ProductsListComponent, ProductFormComponent, ConfirmationComponentComponent, UsersComponent, UserListComponent, UserFormComponent, LoginComponent, SalesWindowComponent],
+  declarations: [AppComponent, MenubarComponent, ProductsListComponent, ProductFormComponent, ConfirmationComponentComponent, UsersComponent, UserListComponent, UserFormComponent, LoginComponent, SalesWindowComponent, CardComponent, CartComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

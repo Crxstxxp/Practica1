@@ -1,0 +1,11 @@
+<div class="card-container">
+  <div *ngFor="let card of cards" class="card">
+    <img [src]="card.image" alt="Imagen de producto" class="card-image">
+    <div class="card-content">
+      <h3 class="card-title">{{ card.title }}</h3>
+      <p class="card-description">{{ card.description }}</p>
+      <p class="card-description">{{ card.price }}</p>
+      <button mat-raised-button color="primary" (click)="addToCart(card)">Agregar al carro</button>
+    </div>
+  </div>
+</div>
