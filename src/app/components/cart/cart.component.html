@@ -1,1 +1,14 @@
-<p>cart works!</p>
+<div class="cart-container">
+  <h2>Carrito de Compras</h2>
+  <div *ngFor="let item of cartItems$ | async" class="cart-item">
+    <div class="cart-item-content">
+      <h3 class="cart-item-title">{{ item.name }}</h3>
+      <p class="cart-item-description">Precio: {{ item.price }}</p>
+      <p class="cart-item-quantity">Cantidad: {{ item.quantity }}</p>
+      <button mat-raised-button color="warn" (click)="removeFromCart(item.id)">Eliminar</button>
+    </div>
+  </div>
+  <div class="cart-total">
+    <h3>Total: {{ total$ | async }}</h3>
+  </div>
+</div>
