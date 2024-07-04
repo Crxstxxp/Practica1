@@ -49,4 +49,13 @@ export class AuthService {
       localStorage.removeItem('authToken');
     }
   }
+
+  isAuthenticatedUser(): boolean {
+    let token = localStorage.getItem('authToken' || '')
+    if (token !== null && token !== '') {
+      return true
+    } else {
+      return false
+    }
+  }
 }

@@ -7,13 +7,14 @@ import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { CardComponent } from './components/sales/card/card.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full'},
-  { path: 'ProductsListComponent', component: ProductsListComponent },
-  { path: 'UserListComponent', component: UserListComponent },
-  { path: 'CardComponent', component: CardComponent },
+  { path: 'ProductsListComponent', component: ProductsListComponent, canActivate: [AuthGuard] },
+  { path: 'UserListComponent', component: UserListComponent, canActivate: [AuthGuard] },
+  { path: 'CardComponent', component: CardComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 

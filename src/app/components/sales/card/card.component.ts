@@ -36,7 +36,7 @@ export class CardComponent {
           _id: String(product._id)
 
         }));
-        console.log(products);
+        // console.log(products);
       },
       (error) => {
         console.error('Error fetching products:', error);
